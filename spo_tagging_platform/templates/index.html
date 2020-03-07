@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<title>关系抽取标注平台</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+        mark {
+            background-color:#00ff90; font-weight:bold;
+        }
+		p{text-indent:2em;}
+    </style>
+	<script>
+
+		// 获取s,p,o，形成三元组，展示在SPO组的文本域内
+		function get_spo(){
+			var subjs = document.getElementById("subject").value.split("#");
+			var preds = document.getElementById("pred").value.split("#");
+			var objs = document.getElementById("obj").value.split("#");
+
+			if(subjs[0] == "" || preds[0] == "" || objs[0] == ""){
+				alert("请检查标注！");
+			}
+			else{
+
+				if(subjs.length + preds.length + objs.length == 3){
+					var text = subjs[0]+"#"+preds[0]+"#"+objs[0]+"#1\n";
+				}
+				else{
+					var text = "";
+
+					for(i=0; i<subjs.length; i++){
+						for(j=0; j<preds.length; j++){
+							for(k=0; k<objs.length; k++){
+								var str = subjs[i]+"#"+preds[j]+"#"+objs[k]+"#0\n";
+								text += str;
+							}
+						}
+					}
+				}
+
+				var spo = document.getElementById("spo");
+				spo.innerHTML = text;
+
+			}
+		}
+
+		// 清空SPO组的内容
+		function clear_spo(){
+			var spo = document.getElementById("spo");
+			spo.innerHTML = "";
+		}
+	</script>
+</head>
+<body>
+
+<center>
+    <br><br><br>
+<form class="form-horizontal" role="form" method="post" action="/query" style="width:600px">
+
+	<div class="form-group">
+		<label for="event" class="col-sm-2 control-label">输入句子</label>
+		<div class="col-sm-10">
+			<textarea type="text" class="form-control" id="event" style="width:490px; height:150px; font-size:20px" name="event"></textarea>
+		</div>
+	</div>
+
+	<div class="form-inline" style="text-align:left;">
+		<label for="subject" class="col-sm-2 control-label">Subject</label>
+		<div class="col-sm-10" id="s_col">
+			<input type="text" class="form-control" id="subject" style="width:490px;font-size:20px" name="subject" />
+			<br><br>
+		</div>
+
+
+		<label for="pred" class="col-sm-2 control-label">Predicate</label>
+		<div class="col-sm-10" id="p_col">
+			<input type="text" class="form-control" id="pred" style="width:490px;font-size:20px" name="pred" />
+			<br><br>
+		</div>
+
+		<label for="obj" class="col-sm-2 control-label">Object</label>
+		<div class="col-sm-10" id="o_col">
+			<input type="text" class="form-control" id="obj" style="width:490px;font-size:20px" name="obj" />
+			<br><br>
+		</div>
+	</div>
+
+	<div class="form-group">
+
+		<label for="event" class="col-sm-2 control-label">SPO组</label>
+		<div class="col-sm-10">
+			<textarea type="text" class="form-control" id="spo" style="width:490px; height:250px; font-size:20px" name="spo"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+            <br>
+            <button onclick="get_spo()" type="button" class="btn btn-default" id="spo_btn">显示SPO</button>
+			<button type="submit" class="btn btn-danger">提交</button>
+			<button onclick="clear_spo()" type="button" class="btn btn-danger">清空SPO组</button>
+            <button type="reset" class="btn btn-warning">重置</button>
+		</div>
+	</div>
+
+</form>
+
+</center>
+
+</body>
+</html>

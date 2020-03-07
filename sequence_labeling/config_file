@@ -1,0 +1,13 @@
+{
+    "num_tags": 9,
+    "lstm_dim": 100,
+    "batch_size": 8,
+    "max_seq_len": 128,
+    "clip": 5.0,
+    "dropout_keep": 0.5,
+    "optimizer": "adam",
+    "lr": 0.001,
+    "tag_schema": "iob",
+    "zeros": false,
+    "lower": true
+}

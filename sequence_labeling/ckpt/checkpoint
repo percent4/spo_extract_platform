@@ -1,0 +1,6 @@
+model_checkpoint_path: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-22149"
+all_model_checkpoint_paths: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-4494"
+all_model_checkpoint_paths: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-6420"
+all_model_checkpoint_paths: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-7062"
+all_model_checkpoint_paths: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-7383"
+all_model_checkpoint_paths: "/Users/lianmingjie/PycharmProjects/spo_extract_platform/sequence_labeling/ckpt/ner.ckpt-22149"

@@ -1,0 +1,16 @@
+termcolor==1.1.0
+tqdm==4.31.1
+six==1.12.0
+pyltp==0.2.1
+pandas==0.23.4
+py2neo==4.3.0
+requests==2.23.0
+matplotlib==3.1.3
+Keras==2.2.4
+python_docx==0.8.10
+numpy==1.16.2
+Cython==0.29.13
+jieba==0.39
+tornado==5.1.1
+tensorflow==1.14.0
+docx==0.2.4
